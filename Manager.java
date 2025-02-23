@@ -1,26 +1,66 @@
 import java.util.*;
 
 public class Manager {
-    //fields
+    // list of students
     ArrayList<Student> students;
 
-    public Manager(){
+    // set up students list
+    public Manager() {
         students = new ArrayList<Student>();
     }
 
-    public String transactionsByDay(int month, int day){
-        String s = "";
-        for(Student st : students){
-            ArrayList<Transaction> tByDay = st.getTransactionsByDate(month, day);
-            if(tByDay != null){
-                s += tByDay.toString() + " by: " + st.getName() + " ID: " + st.getID();
-                s += "\n";
-            }
-        }
-        return s;
+    // add a student
+    public void addStudent(Student student) {
+        students.add(student);
     }
 
-    public void logMeal(int month, int day, int id){
-        //loop through all students and find matching id
+    // log a meal for a student by id
+    public void logMeal(int month, int day, int id) {
+        for (Student st : students) {
+            if (st.getID() == id) {
+                st.addTransaction(month, day, -7.0);
+                break;
+            }
+        }
+    }
+
+    // get transactions for a specific day
+    public String transactionsByDay(int month, int day) {
+        String result = "";
+        for (Student st : students) {
+            ArrayList<Transaction> transactions = st.getTransactionsByDate(month, day);
+            if (transactions != null && !transactions.isEmpty()) {
+                for (Transaction t : transactions) {
+                    result += "(" + t.getMonth() + "/" + t.getDay() + ", $" + t.getAmount() + ") by: " + st.getName() + " ID: " + st.getID() + "\n";
+                }
+            }
+        }
+        return result;
+    }
+
+    // display all students
+    public void displayAllStudents() {
+        for (Student st : students) {
+            st.displayInfo();
+        }
+    }
+
+    // display students with negative balances
+    public void displayNegativeBalanceStudents() {
+        for (Student st : students) {
+            if (st.getBalance() < 0) {
+                st.displayInfo();
+            }
+        }
+    }
+
+    // get student by id
+    public Student getStudentById(int id) {
+        for (Student st : students) {
+            if (st.getID() == id) {
+                return st;
+            }
+        }
+        return null;
     }
 }

@@ -25,3 +25,6 @@ public class Transaction{
         return month + "/" + day + ": $" + amount;
     }
 }
+
+
+//note to self that this file is done 
