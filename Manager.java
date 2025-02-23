@@ -33,7 +33,9 @@ public class Manager {
         for (Student st : students) {
             ArrayList<Transaction> transactions = st.getTransactionsByDate(month, day);
             if (transactions != null && !transactions.isEmpty()) {
+                //checking if its not null or empty
                 for (Transaction t : transactions) {
+                    //cycles through them
                     result += "(" + t.getMonth() + "/" + t.getDay() + ", $" + t.getAmount() + ") by: " + st.getName() + " ID: " + st.getID() + "\n";
                 }
             }
