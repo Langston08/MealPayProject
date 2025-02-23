@@ -38,6 +38,7 @@ public class Manager {
                     //cycles through them
                     result += "(" + t.getMonth() + "/" + t.getDay() + ", $" + t.getAmount() + ") by: " + st.getName() + " ID: " + st.getID() + "\n";
                 }
+                //slightly confused about formatting but this also worked 
             }
         }
         return result;
@@ -69,3 +70,5 @@ public class Manager {
         return null;
     }
 }
+
+//note to self this section is done
