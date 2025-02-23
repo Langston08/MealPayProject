@@ -18,10 +18,13 @@ public class Manager {
     public void logMeal(int month, int day, int id) {
         for (Student st : students) {
             if (st.getID() == id) {
+                //gonna cycle through the students
                 st.addTransaction(month, day, -7.0);
                 break;
+                //just stops it 
             }
         }
+        //check if it works so far (note to self)
     }
 
     // get transactions for a specific day
