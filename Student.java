@@ -22,6 +22,7 @@ public class Student {
     // charge lunch, reduce balance and log the transaction
     public void chargeLunch(int month, int day) {
         balance -= 7;  // each lunch costs $7
+        //set price bc instructions
         Transaction t = new Transaction(month, day, -7);
         transactions.add(t);
     }
@@ -40,6 +41,7 @@ public class Student {
         for (Transaction t : transactions) {
             if (month == t.getMonth() && day == t.getDay()) {
                 givenDay.add(t);
+                //loops through transactions list and adds to whatever date matches
             }
         }
 
@@ -55,6 +57,7 @@ public class Student {
             for (Transaction t : transactions) {
                 System.out.print("(" + t.getMonth() + "/" + t.getDay() + ", $" + t.getAmount() + ") ");
             }
+            //gonna display the name id balance and transactions 
         }
         System.out.println();
     }
