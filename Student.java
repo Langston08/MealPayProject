@@ -8,6 +8,8 @@ public class Student {
     private static int idGen = 1;  // auto-generate student ID
     private ArrayList<Transaction> transactions;
 
+    //okay i got all the fields done note to self
+
     // constructor
     public Student(String myName) {
         name = myName;
